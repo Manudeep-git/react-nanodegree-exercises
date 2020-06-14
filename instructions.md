@@ -1,6 +1,6 @@
 # Instructions
 
-Use React and the `profiles`, `users`, and `movies` data in `App.js` to display a list of users alongside their favorite movies.
+Use React.js and the `profiles`, `users`, and `movies` data in `App.js` to display a list of users alongside their favorite movies.
 
 ## Example
 
