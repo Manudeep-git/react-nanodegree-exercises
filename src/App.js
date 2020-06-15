@@ -106,7 +106,18 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
-      </div>
+{/* Map over every object in Profiles array of objects to make alist of JSX elements
+        and access movies and users using ids */}
+		<ol>
+		{profiles.map(profile => {
+         return (
+        	<li key={profile.id}> 
+				<p>{`${users[profile.userID].name}'s favorite movie is "${movies[profile.favoriteMovieID].name}."`}</p>
+			</li>
+	);
+})}
+	</ol>
+	</div>
     );
   }
 }
