@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
 import logo from './logo.svg';
-
+import './App.css';
+import Dashboard from "./Dashboard"
 /*
-Use React and the data below to display a list of users alongside their favorite movies.
+Display a list of movies where each movie contains a list of users that favorited it.
 
 For detailed instructions, refer to instructions.md.
 */
@@ -44,7 +44,7 @@ const profiles = [
 const users = {
   1: {
     id: 1,
-    name: 'Jane Cruz',
+    name: 'Jane Jones',
     userName: 'coder',
   },
   2: {
@@ -58,7 +58,7 @@ const users = {
     userName: 'user123',
   },
   4: {
-    id: 4,
+    id: 3,
     name: 'John Doe',
     userName: 'user123',
   },
@@ -77,7 +77,7 @@ const users = {
 const movies = {
   1: {
     id: 1,
-    name: 'Planet Earth 1',
+    name: 'Planet Earth',
   },
   2: {
     id: 2,
@@ -98,26 +98,37 @@ const movies = {
 };
 
 class App extends Component {
+  constructor(props){
+  super(props);
+  this.usersPerMovie={}
+  /*Iterating over movies,getting their id and comparing with profiles userid can be an option 
+   but since profiles is an list, we will get the userid's  for each movie id*/
+    profiles.forEach(profile => 
+     {
+     const movieId=profile.favoriteMovieID;
+     if(this.usersPerMovie[movieId])
+     {
+    	    this.usersPerMovie[movieId].push(profile.userID);
+    	}
+     else
+     {
+     this.usersPerMovie[movieId]=[profile.userID];
+     }
+    });
+  }
   render() {
     return (
-      <div>
+      <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
-        <h2>Favorite Movies</h2>
-{/* Map over every object in Profiles array of objects to make alist of JSX elements
-        and access movies and users using ids */}
-		<ol>
-		{profiles.map(profile => {
-         return (
-        	<li key={profile.id}> 
-				<p>{`${users[profile.userID].name}'s favorite movie is "${movies[profile.favoriteMovieID].name}."`}</p>
-			</li>
-	);
-})}
-	</ol>
-	</div>
+        <h2>How Popular is Your Favorite Movie?</h2>
+		<Dashboard 
+			usersByMovie={this.usersPerMovie} 
+			users ={users}
+			movies={movies}/>
+      </div>
     );
   }
 }
