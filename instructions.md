@@ -1,45 +1,5 @@
 # Instructions
 
-Use React and the `profiles`, `users`, and `movies` data in `App.js` to display a list of users alongside their favorite movies.
-
-## Example
-
-The `users` object has the user "Jane Crqz":
-
-```js
-const users = {
-  1: {
-    id: 1,
-    name: 'Jane Cruz',
-    userName: 'coder',
-  }
-  .
-  .
-  .
-};
-```
-
-And the `profiles` array has a combination of which users like which movies:
-
-```js
-const profiles = [
-  {
-    id: 1,
-    userID: '1',
-    favoriteMovieID: '1',
-  },
-  .
-  .
-  .
-];
-```
-
-From this information, one of the list items might look like this:
-
-> Jane Cruz's favorite movie is Planet Earth 1.
-
-# Instructions
-
 Let's do something a little bit more complicated. Instead of displaying a
 list of users and their movies, this time you need to display a list of movies.
 
