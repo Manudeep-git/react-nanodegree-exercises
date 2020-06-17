@@ -8,12 +8,11 @@ class MovieCardsList extends Component {
     off of the pros passed into this presentational component. If you need a refresher on this syntax, check
     out this course: https://www.udacity.com/course/es6-javascript-improved--ud356
     */
-    const { users, movies, usersByMovie } = this.props;
+    const { movies, usersByMovie } = this.props;
 
     const movieCards = Object.keys(movies).map(id => (
       <MovieCard
         key={id}
-        users={users}
         usersWhoLikedMovie={usersByMovie[id]}
         movieInfo={movies[id]}
       />

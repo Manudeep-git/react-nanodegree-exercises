@@ -4,7 +4,6 @@ import './App.css';
 import Dashboard from "./Dashboard"
 /*
 Display a list of movies where each movie contains a list of users that favorited it.
-
 For detailed instructions, refer to instructions.md.
 */
 
@@ -108,11 +107,11 @@ class App extends Component {
      const movieId=profile.favoriteMovieID;
      if(this.usersPerMovie[movieId])
      {
-    	    this.usersPerMovie[movieId].push(profile.userID);
+    	    this.usersPerMovie[movieId].push(users[profile.userID].name);
     	}
      else
      {
-     this.usersPerMovie[movieId]=[profile.userID];
+     this.usersPerMovie[movieId]=[users[profile.userID].name];
      }
     });
   }
