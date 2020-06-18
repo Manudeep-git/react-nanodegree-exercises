@@ -1,31 +1,17 @@
-# Instructions
+### Instructions
 
-Let's do something a little bit more complicated. Instead of displaying a
-list of users and their movies, this time you need to display a list of movies.
+You're given a starter template with dummy data.
 
-For each movie in the list, there are two options:
+**Task**: Create a game that shows an equation of the form X+Y+Z=P. Here,
+X, Y, and Z should be random numbers, and P should be the proposed answer. The
+user should be able to answer whether it is true that the sum of X, Y, and Z
+equals the proposed answer P. The user gets a point for each question the user
+answers correctly. The score is displayed in this format: [number of correct
+answers]/[number of questions answered]. Every time the user answers a question,
+a new question that uses randomly generated numbers is displayed.
 
-1. If the movie has been favorited, then display a list of all of the users who said that this movie was their favorite.
-2. If the movie has *not* been favorited, display some text stating that no one favorited the movie.
+Remember that a Component's constructor is the first thing that runs when the
+object is created. The render method gets called automatically every time the state changes
+inside of the component and anytime the value of the component's props changes.
 
-As you go about tackling this project, try to make the app *modular* by breaking it into resusable React components.
-
-## Example
-
-```html
-<h2>Forrest Gump</h2>
-<p>Liked By:</p>
-<ul>
-  <li>Nicholas Lain</li>
-</ul>
-
-<h2>Get Out</h2>
-<p>Liked By:</p>
-<ul>
-  <li>John Doe</li>
-  <li>Autumn Green</li>
-</ul>
-
-<h2>Autumn Green</h2>
-<p>None of the current users liked this movie</p>
-```
+This exercise will help you practice what you've learned in the course so far, including the trickiest part of React - managing state.
