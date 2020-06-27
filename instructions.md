@@ -1,31 +1,44 @@
-# Instructions
+### Instructions
 
-Let's do something a little bit more complicated. Instead of displaying a
-list of users and their movies, this time you need to display a list of movies.
+You're given a starter template with dummy data.
 
-For each movie in the list, there are two options:
+**Task**: Add interactivity to the app by refactoring the static code in this
+template. The goal is to build a React app that shows 2 chat windows for the
+two existing users - Amy and John. The messages they send to each other should
+appear in both chat windows. On Amy's screen, her messages should appear in green and
+John's messages should appear in blue. On John's screen, his messages should appear in
+green and Amy's messages should appear in blue.
 
-1. If the movie has been favorited, then display a list of all of the users who said that this movie was their favorite.
-2. If the movie has *not* been favorited, display some text stating that no one favorited the movie.
+Remember to follow these steps from the [Thinking in React Guide](https://reactjs.org/docs/thinking-in-react.html) when you're building your
+React applications:
 
-As you go about tackling this project, try to make the app *modular* by breaking it into resusable React components.
+#### Step 1. Break down the app into a hierarchy of components. Draw a box around each React component.
 
-## Example
+#### Step 2. Determine the data in our app.
 
-```html
-<h2>Forrest Gump</h2>
-<p>Liked By:</p>
-<ul>
-  <li>Nicholas Lain</li>
-</ul>
+#### Step 3. Figure out the data that should be a part of our state:
 
-<h2>Get Out</h2>
-<p>Liked By:</p>
-<ul>
-  <li>John Doe</li>
-  <li>Autumn Green</li>
-</ul>
+1.  Is it passed in from a parent via props? If so, it probably isn’t state.
 
-<h2>Autumn Green</h2>
-<p>None of the current users liked this movie</p>
-```
+2.  Does it remain unchanged over time? If so, it probably isn’t state.
+
+3.  Can you compute it based on any other state or props in your component?
+    If so, it isn’t state.
+
+#### Step 4. Identify where each piece of state lives.
+
+1.  Identify every component that renders something based on that state.
+
+2.  If multiple components need the same piece of state, put that piece of state into those components' parent-most component.
+
+If you can’t find a component where it makes sense to own the state, create
+a new component simply for holding the state and add it somewhere in the
+hierarchy above the common owner component.
+
+#### Step 5. Add Inverse Data Flow.
+
+State should be updated inside of the component where that state lives.
+If we pass state down from component A to component B and then need to update
+the state based on something that happened in component B, we can do so via
+callbacks: Component A will not only pass state to Component B, but it will
+also pass a callback function that will fire whenever the state should be updated.
